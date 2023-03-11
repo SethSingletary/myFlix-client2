@@ -5,13 +5,13 @@ export const LoginView = ({onLoggedIn}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         try{
-            const queryParams = `?Username=${username}&Password=${password}`
+            const queryParams = `?Username=${username}&Password=${password}`;
             const respone = await fetch(
-                `https://my-flix2.herokuapp.com/login${queryParams}`
+                `https://my-flix2.herokuapp.com/login${queryParams}`,
                 {
                     method: "POST",
                     headers: {
